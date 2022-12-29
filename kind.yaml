@@ -1,0 +1,14 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: demo
+networking:
+  apiServerAddress: 192.168.1.61 # PUT YOUR IP ADDRESSS OF YOUR MACHINE HERE DUMMIE! ;-) 
+  podSubnet: "10.244.0.0/16"
+  serviceSubnet: "10.96.0.0/12"
+nodes:
+- role: control-plane
+  image: kindest/node:v1.24.7@sha256:577c630ce8e509131eab1aea12c022190978dd2f745aac5eb1fe65c0807eb315
+- role: worker
+  image: kindest/node:v1.24.7@sha256:577c630ce8e509131eab1aea12c022190978dd2f745aac5eb1fe65c0807eb315
+- role: worker
+  image: kindest/node:v1.24.7@sha256:577c630ce8e509131eab1aea12c022190978dd2f745aac5eb1fe65c0807eb315
