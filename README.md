@@ -434,7 +434,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
 for ctx in kind-demo kind-demo3; do
   echo "Instalando o ingress-nginx - ${ctx}"
-  helm install ingress-nginx -n ingress-nginx --create-namespace ingress-nginx/ingress-nginx --kube-context=${ctx}
+  helm install ingress-nginx -n ingress-nginx --create-namespace ingress-nginx/ingress-nginx --set controller.podAnnotations.linkerd.io/inject=enabled --kube-context=${ctx}
   
   echo "ingress-nginx namespace in mesh "
   kubectl annotate ns ingress-nginx linkerd.io/inject=enabled --context=${ctx}
