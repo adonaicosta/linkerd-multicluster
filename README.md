@@ -154,13 +154,13 @@ Essa é a hora de voce validar se sua máquina consegue se conectar a um serviç
 
 ```bash
 # cria um deploy bobo
-kubectl create deploy web --image nginx
+kubectl create deploy web --image nginx --context=kind-demo
 
 # expoe o deploy como LoadBalancer
-kubectl expose deploy web --port 80 --target-port 80 --type LoadBalancer
+kubectl expose deploy web --port 80 --target-port 80 --type LoadBalancer --context=kind-demo
 
 # verifica o IP designado ao seu service
-kubectl get service web
+kubectl get service web --context=kind-demo
 ... bla bla bla
 NAMESPACE              NAME                                 TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
 default                web                                  LoadBalancer   10.101.106.156   172.17.0.61   80:31507/TCP                    20s
@@ -178,7 +178,7 @@ html { color-scheme: light dark; } .... bla bla bla bla
 Deu certo? Pode apagar,
 
 ```bash
-kubectl delete deploy,svc web
+kubectl delete deploy,svc web --context=kind-demo
 ```
 
 Faça o mesmo no outro cluster mudando o `--context=kind-demo3`
@@ -214,6 +214,7 @@ Roda essa bagaça aqui ainda no diretório certs com os certificados criados
 
 ```bash
 alias lk='linkerd'
+alias ka='kubectl apply -f '
 
 for ctx in kind-demo kind-demo3; do                   
   echo "install crd ${ctx}"
