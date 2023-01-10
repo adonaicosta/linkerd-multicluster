@@ -437,14 +437,8 @@ for ctx in kind-demo kind-demo3; do
   echo "Instalando o ingress-nginx - ${ctx}"
   helm install ingress-nginx -n ingress-nginx --create-namespace ingress-nginx/ingress-nginx --set controller.podAnnotations.linkerd.io/inject=enabled --kube-context=${ctx}
   
-  echo "ingress-nginx namespace in mesh "
-  kubectl annotate ns ingress-nginx linkerd.io/inject=enabled --context=${ctx}
-
   echo "Aguarde a instalação do ingress-nginx terminar, 30s, acho"
   kubectl rollout status deploy -n ingress-nginx ingress-nginx-controller --context=${ctx}
-
-  echo "restart ingress-nginx deployment to mesh"
-  kubectl rollout restart deploy -n ingress-nginx ingress-nginx-controller --context=${ctx}
 
   echo "Criando um ingress para o podinfo - ${ctx}"
   kubectl --context=${ctx} -n test create ingress frontend --class nginx --rule="frontend-${ctx}.domain.com/*=frontend:8080"
