@@ -441,7 +441,7 @@ for ctx in kind-demo kind-demo3; do
   kubectl rollout status deploy -n ingress-nginx ingress-nginx-controller --context=${ctx}
 
   echo "Criando um ingress para o podinfo - ${ctx}"
-  kubectl --context=${ctx} -n test create ingress frontend --class nginx --rule="frontend-${ctx}.domain.com/*=frontend:8080" --annotation "nginx.ingress.kubernetes.io/service-upstream=true"
+  kubectl --context=${ctx} -n test create ingress frontend --class nginx --rule="frontend-${ctx}.127-0-0-1.sslip.io/*=frontend:8080" --annotation "nginx.ingress.kubernetes.io/service-upstream=true"
 done
 ```
 
