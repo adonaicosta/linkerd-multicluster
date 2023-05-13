@@ -9,7 +9,7 @@ A idéia aqui é mostrar o quão fácil é criar e manter multiclusters com serv
 
 O linkerd, se mostrou capaz de realizar essa tarefa, com facilidade, rastreabilidade, segurança e observabilidade, outros service meshs apresentam limitações mil que nos impedem de dar implementar e dar manutenção e sequer conseguirmos fazer um simples troubleshoot.
 
-Agradeço tambem ao time [Getup](https://getup.io) que sempre está disposto a desenvolver, validar e testar e disseminar seus conhecimentos com a comunidade
+Agradeço tambem ao time [Getup](https://getup.io) que sempre está disposto a desenvolver, validar, testar e disseminar seus conhecimentos com a comunidade
 
 
 ## Instale as ferramentas que te deixarão doido pra criar clusters em mesh. 
@@ -18,8 +18,8 @@ Agradeço tambem ao time [Getup](https://getup.io) que sempre está disposto a d
 **kubectl:** https://kubernetes.io/docs/tasks/tools/  
 **helm:** https://helm.sh/docs/intro/install/  
 **step:** https://smallstep.com/docs/step-cli/installation  
-**linkerd:** https://github.com/linkerd/linkerd2/releases/tag/stable-2.12.3  
-**linkerd-smi:** https://github.com/linkerd/linkerd-smi/releases/tag/v0.2.0  
+**linkerd:** https://github.com/linkerd/linkerd2/releases/tag/stable-2.13.3  
+**linkerd-smi:** https://github.com/linkerd/linkerd-smi/releases/tag/v0.2.1  
 
 Bora lá!
 
