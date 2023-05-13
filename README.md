@@ -80,7 +80,7 @@ EOF
 kind create cluster --config kind3.yaml 
 ```
 
-Viu a diferença? os dois clusters têm IP pra pods e services diferentes, isso ajuda no tshoot, localização de serviços e não conflita IPs no trafego de pacotes entre os clusters
+> ___Viu a diferença? os dois clusters têm IP pra pods e services diferentes, isso ajuda no tshoot, localização de serviços e não conflita IPs no trafego de pacotes entre os clusters. Se por acaso os IPs de Pods e services estiverem no mesmo range voce vai ter problemas e o multicluster não vai funcionar___
 
 
 ## Instale o metallb para obter LoadBalancers nos seus clusters
