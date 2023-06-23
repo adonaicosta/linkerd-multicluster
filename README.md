@@ -86,8 +86,7 @@ kind create cluster --config kind3.yaml
 ## Instale o metallb para obter LoadBalancers nos seus clusters
 
 ```bash
-helm repo add metallb https://metallb.github.io/metallb
-helm repo update
+helm repo add metallb https://metallb.github.io/metallb --force-update
 for ctx in kind-demo kind-demo3; do
  helm install metallb -n metallb-system --create-namespace metallb/metallb --kube-context=${ctx}
 done 
@@ -431,8 +430,7 @@ Se voce fizer port-forward no mesmo serviço frontend do outro cluster o resulta
 Instale o ingress-nginx em cada um dos clusters.
 
 ```bash
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx --force-update
 for ctx in kind-demo kind-demo3; do
   echo "Instalando o ingress-nginx - ${ctx}"
   helm install ingress-nginx -n ingress-nginx --create-namespace ingress-nginx/ingress-nginx --set controller.podAnnotations.linkerd.io/inject=enabled --kube-context=${ctx}
